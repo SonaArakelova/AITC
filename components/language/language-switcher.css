@@ -1,0 +1,29 @@
+/* Make the Select look like a pill/oval button */
+.language-switcher .ant-select-selector {
+  border-radius: 9999px !important;
+  padding: 18px 12px !important;
+  height: auto !important;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Make the dropdown items consistent */
+.language-switcher .ant-select-item-option-content {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  
+}
+
+.language-switcher-circle{
+  width: 22px !important;
+  height: 22px !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d1d5db;
+
+}
