@@ -13,6 +13,8 @@ interface NavbarItem {
 }
 
 
+
+
 export async function fetchNavbarItems(locale: string = 'en-US'): Promise<NavbarItem[]> {
   const entries = await client.getEntries({
     content_type: 'navbar',
@@ -20,6 +22,7 @@ export async function fetchNavbarItems(locale: string = 'en-US'): Promise<Navbar
     order: ['fields.order'],
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return entries.items.map((item: any) => ({
     id: item.sys.id,
     name: item.fields.name,

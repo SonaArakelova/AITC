@@ -6,10 +6,7 @@ const nextConfig: NextConfig = {
       },
 
     
-    i18n: {
-      locales: ['en-US', 'hy'], 
-      defaultLocale: 'en-US',
-  },
+   
 
 
      reactStrictMode: false
