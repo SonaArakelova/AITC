@@ -1,7 +1,7 @@
-
 'use client'
 
 import Link from "next/link";
+import Image from "next/image";
 import { LanguageSwitcher } from "./language/LanguageSwitch";
 import { fetchNavbarItems } from '@/lib/api/api';
 import { useState, useEffect } from "react";
@@ -20,28 +20,40 @@ export function Header({ initialNavbarItems}: HeaderProps) {
   const [locale, setLocale] = useState('en-US');
   const [navbarItems, setNavbarItems] = useState(initialNavbarItems);
 
-  useEffect(() => {
-    async function loadNavbar() {
+useEffect(() => {
+  async function loadNavbar() {
+    if (locale === 'en-US') {
+      setNavbarItems(initialNavbarItems);
+    } else {
+      // Fetch localized items 
       const items = await fetchNavbarItems(locale);
       setNavbarItems(items);
     }
+  }
 
-    if (locale !== 'en-US') {
-      loadNavbar();
-    }
-  }, [locale]);
+  loadNavbar();
+}, [locale, initialNavbarItems]);
 
+ 
   function handleLanguageChange(newLocale: string) {
     setLocale(newLocale);
   }
 
   return (
-    <header className=" sticky top-2 z-50 bg-white shadow-[0_4px_10px_rgba(78,86,255,0.3)] px-[160px] p-2">
-      <nav className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-3">
+    <header className=" sticky top-1 z-50 bg-white shadow-[0_4px_10px_rgba(78,86,255,0.3)] px-[190px] p-1">
+      <nav className="max-w-7xl mx-auto px-0 py-1 flex items-center justify-between gap-3">
         
-        <h1 className="text-5xl font-bold text-[rgb(78,86,255)]">
+        {/* <h1 className="text-5xl font-bold text-[rgb(78,86,255)]">
           AITC
-        </h1> 
+        </h1>  */}
+
+        <Image
+         src='/Logo.png'
+         alt='Logo'
+         width={90}
+         height={30}
+         className=" border-white border-6 "
+        />
 
         <ul className="flex space-x-16 text-l font-light mx-8">
           {navbarItems.map(({ id, name, url }) => (
@@ -59,6 +71,8 @@ export function Header({ initialNavbarItems}: HeaderProps) {
             Registration
           </button>
           <LanguageSwitcher value={locale} onChange={handleLanguageChange} />
+           {/* <LanguageSwitcher value="en-US" onChange={(locale) => console.log(locale)} />        */}
+
         </div>
 
       </nav>
