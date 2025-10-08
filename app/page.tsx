@@ -3,7 +3,6 @@ import { Header } from '@/components/Header';
 
 
 
-
 export default async function Page() {
   const navbarItems = await fetchNavbarItems('en-US');
 
@@ -13,7 +12,5 @@ export default async function Page() {
     </>
   );
 }
-
-
 
 
