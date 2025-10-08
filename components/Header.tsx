@@ -67,9 +67,12 @@ useEffect(() => {
         </ul>
 
         <div className="flex gap-2">
+          <Link href= '/register'>
           <button className="bg-[rgb(78,86,255)] text-white text-l text-light rounded-full px-7 py-2 tracking-widest hover:bg-[rgb(34,42,192)] transition ">
             Registration
           </button>
+          </Link>
+
           <LanguageSwitcher value={locale} onChange={handleLanguageChange} />
            {/* <LanguageSwitcher value="en-US" onChange={(locale) => console.log(locale)} />        */}
 
