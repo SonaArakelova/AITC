@@ -1,9 +1,9 @@
 import React from 'react'
 import {Login} from './_components/Login'
 
-export default function page() {
+export default function LoginPage() {
   return (
-    <div>page
+    <div> page
       <Login/>
     </div>
   )
